@@ -56,13 +56,13 @@ module Mailman
     def run
       Mailman.logger.info "Mailman v#{Mailman::VERSION} started"
 
-      if config.rails_root
-        rails_env = File.join(config.rails_root, 'config', 'environment.rb')
-        if File.exist?(rails_env) && !(defined?(Rails) && Rails.env)
-          Mailman.logger.info "Rails root found in #{config.rails_root}, requiring environment..."
-          require rails_env
-        end
-      end
+      # if config.rails_root
+      #   rails_env = File.join(config.rails_root, 'config', 'environment.rb')
+      #   if File.exist?(rails_env) && !(defined?(Rails) && Rails.env)
+      #     Mailman.logger.info "Rails root found in #{config.rails_root}, requiring environment..."
+      #     require rails_env
+      #   end
+      # end
 
       if config.graceful_death
         # When user presses CTRL-C, finish processing current message before exiting
